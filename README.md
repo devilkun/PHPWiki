@@ -57,9 +57,33 @@ find / -name php-config
 
 ## Swoole
 ### 基于swoole的框架
+
+[协程的原理]: https://www.kancloud.cn/ptbird/phpmsfdoc/458155
+[异步与并发]: https://www.kancloud.cn/ptbird/phpmsfdoc/458156
+
+
+
+
+
+
+
+
+
 #### easySwoole 
 >简称 esw
 >[EasySwoole官方文档](https://www.easyswoole.com/Cn/Preface/introduction.html)
+#### swoft
+
+> 支持微服务 
+>
+> Swoft 完美与 Istio/Envoy 等 Service mesh 框架契合，
+>
+> 同时还为中小型提供一套快速构建微服务治理组件，
+>
+> 包括服务注册与发现、服务熔断、服务限流，以及配置中心。
+
+https://www.swoft.org/
+
 ## Nginx
 
 ## Mysql
@@ -245,6 +269,11 @@ phpStorm激活到2089年教程
 
 ## 系统架构
 [100W日活 5KW PV的系统架构该如何设计?](https://segmentfault.com/a/1190000022538441)
+
+
+## 微服务 服务拆分与治理
+[微服务架构下的鉴权，怎么做更优雅？](https://learnku.com/articles/30704)
+
 
 ## 系统设计(业务场景设计)
 1.抢红包如何设计
