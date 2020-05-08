@@ -22,6 +22,6 @@
 > Swoole4.5 + EasySwoole 重写. 
 
 ## 架构图
-![QQ截图20200503225351.png](/img/bVbGJq9)
+![QQ截图20200503225351.png](https://image-static.segmentfault.com/238/146/2381464659-5eaedb2b1fd01_articlex)
 
 欢迎友好讨论,以上为理论值.
