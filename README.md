@@ -13,6 +13,7 @@
 ### php extension扩展包安装
 先去http://pecl.php.net/ 找到源码下载地址
 **第一种方式PECL**
+
 ```
 pecl install  http://pecl.php.net/get/redis-4.1.0RC2.tgz
 ```
@@ -57,6 +58,10 @@ find / -name php-config
 
 ## Swoole
 ### 基于swoole的框架
+
+swoole相关基础知识介绍
+
+https://www.kancloud.cn/php-jdxia/phpnote/404743
 
 [协程的原理]: https://www.kancloud.cn/ptbird/phpmsfdoc/458155
 [异步与并发]: https://www.kancloud.cn/ptbird/phpmsfdoc/458156
@@ -197,8 +202,17 @@ https://github.com/phachon/mm-wiki
 >团队内代码编辑器及版本必须强制统一
 
 [phpStorm汉化教程](https://github.com/pingfangx/TranslatorX)
-phpStorm激活到2089年教程
+
+
+
+[phpStorm激活到2089年教程](https://github.com/feng99/PHPWiki/blob/master/php/phpStorm%E6%BF%80%E6%B4%BB%E5%88%B02089%E5%B9%B4.md)
+
+
+
 [phpStrom自动展开use内容](https://www.coder.work/article/725180)
+
+
+
 #### 一定要安装的插件
 > java的idea编辑器 比phpstrom的插件更丰富.
 > phpstrom真没啥好插件..我只安装了下面这一个
