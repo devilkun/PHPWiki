@@ -153,6 +153,10 @@ Innodb引擎中的索引结构
 ### 分库与分表
 
 
+
+### Win10系统安装Mysql5.7
+
+
 ## Redis
 [Redis-Cli全部命令](https://www.runoob.com/redis/redis-commands.html)
 
