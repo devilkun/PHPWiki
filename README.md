@@ -1,5 +1,6 @@
 持续更新,觉得有帮助的欢迎star,希望补充内容的欢迎提issues
 
+[TOC]
 
 ## **版权声明:**
 > 以下出现的文章,
@@ -62,6 +63,8 @@ find / -name php-config
 swoole相关基础知识介绍
 
 https://www.kancloud.cn/php-jdxia/phpnote/404743
+
+[网络IO与磁盘IO](https://github.com/feng99/PHPWiki/blob/master/swoole/网络IO与磁盘IO.md)
 
 [协程的原理]: https://www.kancloud.cn/ptbird/phpmsfdoc/458155
 [异步与并发]: https://www.kancloud.cn/ptbird/phpmsfdoc/458156
