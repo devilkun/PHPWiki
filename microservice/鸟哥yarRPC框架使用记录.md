@@ -6,7 +6,10 @@
 
 [php.net  YAR的官方文档]( https://www.php.net/manual/zh/book.yar.php)
 
+https://www.phpjieshuo.com/archives/127/
+
 ## 安装文档
+
 1.需要安装Msgpack扩展
 2.如果需要使用Msgpack作为打包协议, 则需要在configure的时候加上--enable-msgpack
 3.扩展包 源码下载地址 https://pecl.php.net/package/yar
