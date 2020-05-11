@@ -69,7 +69,10 @@ PHP配置文件：/usr/local/php/etc/php.ini
 php-fpm配置文件：/usr/local/php/etc/php-fpm.conf
 Redis 配置文件：/usr/local/redis/etc/redis.conf
 查看php扩展目录  php -i | grep extension_dir
-查看pp扩展配置文件  cd /usr/local/php/conf.d
+查看ppp扩展配置文件  cd /usr/local/php/conf.d
+
+
+/usr/local/php/bin/php-config
 ```
 ## 安装phalcon3.4
 **如果曾经使用过phalcon2.x,3.x的版本  不建议使用phalcon4.x**
@@ -81,7 +84,7 @@ wgete https://codeload.github.com/phalcon/cphalcon/zip/v3.4.3
 unzip cphalcon-3.4.3.zip
 cd /data/softs/cphalcon-3.4.3/build/php7/64bits
 phpize
-./configure --with-php-config=/usr/local/src/php7/bin/php-config --enable-phalcon
+./configure --with-php-config=/usr/local/php/bin/php-config  --enable-phalcon
 make && make install
 
 ````
