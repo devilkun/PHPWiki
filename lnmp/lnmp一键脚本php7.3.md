@@ -1,3 +1,11 @@
+
+
+## 此文使用lnmp.org的一键脚本
+但是phalcon扩展需要自己单独安装
+建议使用oneinstack一键脚本 内置了phalcon3.4.5的扩展
+
+
+
 机器环境  centos7 64bit
 **机器内存建议至少3GB,否则安装phalcon的时候会卡主很久.大概5分钟**
 目标

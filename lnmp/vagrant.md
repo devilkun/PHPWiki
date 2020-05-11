@@ -32,7 +32,8 @@ vagrant suspend 暂停本地环境
 vagrant resume 恢复本地环境
 vagrant reload 修改了 Vagrantfile 后，使之生效（相当于先 halt，再 up）
 vagrant destroy 彻底移除本地环境
-vagrant box list 显示当前已经添加的box列表
+
+显示当前已经添加的box列表vagrant box list 
 vagrant box remove 删除相应的box
 vagrant package 打包命令，可以把当前的运行的虚拟机环境进行打包
 vagrant plugin 用于安装卸载插件
