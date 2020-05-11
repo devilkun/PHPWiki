@@ -1,5 +1,6 @@
 持续更新,觉得有帮助的欢迎star,希望补充内容的欢迎提issues
 
+[TOC]
 
 ## **版权声明:**
 > 以下出现的文章,
@@ -13,6 +14,7 @@
 ### php extension扩展包安装
 先去http://pecl.php.net/ 找到源码下载地址
 **第一种方式PECL**
+
 ```
 pecl install  http://pecl.php.net/get/redis-4.1.0RC2.tgz
 ```
@@ -61,6 +63,12 @@ find / -name php-config
 ## Swoole
 ### 基于swoole的框架
 
+swoole相关基础知识介绍
+
+https://www.kancloud.cn/php-jdxia/phpnote/404743
+
+[网络IO与磁盘IO](https://github.com/feng99/PHPWiki/blob/master/swoole/网络IO与磁盘IO.md)
+
 [协程的原理]: https://www.kancloud.cn/ptbird/phpmsfdoc/458155
 [异步与并发]: https://www.kancloud.cn/ptbird/phpmsfdoc/458156
 
@@ -90,6 +98,67 @@ https://www.swoft.org/
 ## Nginx
 
 ## Mysql
+[Mysql优化常见方案总结](https://juejin.im/post/5eb61ccb6fb9a04356087dfe?utm_source=gold_browser_extension)
+> 1.SQL 和索引优化、
+> 2.数据库结构优化、
+> 3.架构升级  单机变主从 
+> 4.业务代码进行读写分离  A:代码里实现 B:用中间件
+> 5.数据库连接池   连接数恒定,提高myql稳定性和连接复用
+> 6.系统硬件优化  比如:磁盘换成SSD
+
+### SQL查询分析器Explain
+
+### 索引
+索引为何使用B+Tree结构
+
+1.数据库数据存储的方式
+
+2.从数据库读取(查询)数据的原理
+
+3.可供使用的数据结构有哪些?
+
+B Tree 和 B+Tree 在Mysql中的具体表现形式
+
+MYISAM引擎中的索引结构
+
+Innodb引擎中的索引结构
+
+非聚集索引(辅助索引)
+
+查看表的索引信息
+
+叶子节点 与中间节点的区别
+
+页数据详解
+
+**问题思考与解答**
+问题1. 索引为何使用B+Tree数据结构? 而不是其他数据结构,如 链表,Hash,红黑树等.
+
+问题2. 为什么表中需要 is_deleted字段来标记是否删除. 直接物理删除数据对索引结构有什么样的影响?
+
+问题3.  创建表时,是否一定要设置主键? 如果不设置主键会怎么样? (显式主键与隐式主键)?
+
+问题4.主键为什么大部分情况下 主键要设置为自动自增(AUTO_INCREMENT)?
+
+问题5: 为什么频繁变化的数据,不适合作为索引字段?
+
+问题6: 为什么变化基数小(唯一性较差)字段,比如 status,type等字段.  不适合作为索引字段?   
+
+以上答案 尽在  Mysql索引详解.
+
+###  数据库连接池
+
+### 主从架构的具体实现
+
+### 读写分离的实现方案
+> 如果你只有一台mysql实例  就别考虑读写分离了  没有意义.
+
+### 分库与分表
+
+
+
+### Win10系统安装Mysql5.7
+
 
 ## Redis
 [Redis-Cli全部命令](https://www.runoob.com/redis/redis-commands.html)
@@ -117,8 +186,8 @@ redis集群方案
 
 
 ## 消息队列
-##### [消息队列应用场景](https://www.kancloud.cn/vson/php-message-queue/885555)
-##### [使用消息队列的注意事项](https://www.kancloud.cn/vson/php-message-queue/885556)
+### [消息队列应用场景](https://www.kancloud.cn/vson/php-message-queue/885555)
+### [使用消息队列的注意事项](https://www.kancloud.cn/vson/php-message-queue/885556)
 
 
 
@@ -186,13 +255,11 @@ redis集群方案
 > mm-wiki 和 mindoc类似  
 > 推荐使用mindoc
 
-#### mindoc
-[mindoc使用文档](https://www.iminho.me/wiki/docs/mindoc/mindoc-linux.md)
 #### mm-wiki
 https://github.com/phachon/mm-wiki
 
 
-### api doc
+### api doc YAPI
 > 类似的接口文档管理工具有十来个吧,用过5个左右,然后发现这个功能和界面最舒服. 也支持mock数据
 > [YAPI 去哪玩开源的  点击看教程 ](https://hellosean1025.github.io/yapi/)
 ### bug管理 禅道
@@ -200,14 +267,26 @@ https://github.com/phachon/mm-wiki
 >团队内代码编辑器及版本必须强制统一
 
 [phpStorm汉化教程](https://github.com/pingfangx/TranslatorX)
-phpStorm激活到2089年教程
+
+
+
+[phpStorm激活到2089年教程](https://github.com/feng99/PHPWiki/blob/master/php/phpStorm%E6%BF%80%E6%B4%BB%E5%88%B02089%E5%B9%B4.md)
+
+
+
 [phpStrom自动展开use内容](https://www.coder.work/article/725180)
+
+
+
 #### 一定要安装的插件
 > java的idea编辑器 比phpstrom的插件更丰富.
 > phpstrom真没啥好插件..我只安装了下面这一个
 1. Key Promoter X
 > 可自定义修改所有的快捷键
 
+## 技术部规范文档
+> 规范制定后,严格执行才是最大的问题
+### 
 
 
 ## LNMP环境
@@ -287,6 +366,7 @@ phpStorm激活到2089年教程
 [PHP实现的红包生成器](https://juejin.im/post/5a97c863518825555d46a7e2)
 2.滴滴打车系统如何设计
 3.Mysql自己实现分词功能 不适用ElasticSearch
+4.分布式锁
 
 
 ## 性能优化专题
