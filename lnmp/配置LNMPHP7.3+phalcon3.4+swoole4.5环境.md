@@ -69,7 +69,7 @@ PHP配置文件：/usr/local/php/etc/php.ini
 php-fpm配置文件：/usr/local/php/etc/php-fpm.conf
 Redis 配置文件：/usr/local/redis/etc/redis.conf
 查看php扩展目录  php -i | grep extension_dir
-查看ppp扩展配置文件  cd /usr/local/php/conf.d
+查看php扩展配置文件  cd /usr/local/php/conf.d
 
 
 /usr/local/php/bin/php-config
