@@ -1,3 +1,7 @@
+##  不要这么操作!!!  可能会导致 无法重启
+
+
+
 官网的box文件   默认用户名是 vagrant
 
 但是,关闭了 密码登陆方式  只能以公钥私钥的方式
@@ -6,11 +10,12 @@
 
 执行vagrant ssh 先进入虚拟机系统中
 
-
+https://www.cnblogs.com/ChinaHook/p/6087632.html
 
 ### 1.开启密码登陆方式
 
 ```
+sudo su
 vim /etc/ssh/sshd_config
 PermitRootLogin prohibit-password
 改为
@@ -60,13 +65,23 @@ sudo useradd -p ${PASSWORD} -m ${USER}
    
 
 2. 编辑/etc/sudoers文件。输入命令
-``` vi /etc/sudoers ```,
+``` vim /etc/sudoers ```,
 ,进入编辑模式，找到这一 行："
 ``` root ALL=(ALL) ALL ```
 在起下面添加"
 ``` zhangsan ALL=(ALL) ALL ```
 然后保存退出。
 
-
 此文,参考这个文章
 https://www.cnblogs.com/feixiangmanon/p/10992087.html
+
+
+
+
+
+
+
+
+
+`config.ssh.private_key_path`
+用于SSH进入客户机的私钥的路径

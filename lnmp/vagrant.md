@@ -26,9 +26,11 @@ https://vagrantcloud.com/centos/boxes/7/versions/1905.1/providers/virtualbox.box
 
 #### 第一步 添加虚拟机
 
+```
 vagrant box add 
 
 vagrant box add v73 D:\soft\Vagrantfile\centos7_64.box
+```
 
 v73 是虚拟机的名字
 
@@ -36,21 +38,55 @@ v73 是虚拟机的名字
 
 #### 第二步  初始化虚拟机
 
-vagrant init 初始化box的操作，会生成vagrant的配置文件Vagrantfile
+初始化box的操作，会生成vagrant的配置文件Vagrantfile
+
+```
+vagrant init 
+```
 
 ### 第三步 修改配置文件Vagrantfile
 
 请看vagrantfile备份.md
 
 #### 第四步 启动虚拟机
-
-vagrant up 启动本地环境
-
-#### 第五步 进入虚拟机
-
-vagrant ssh 通过 ssh 登录本地环境所在虚拟机
+启动本地环境
+```
+vagrant up 
+```
 
 
+#### 第五步 进入虚拟机 使用win10自带的power shell
+
+通过 ssh 登录本地环境所在虚拟机
+
+```
+vagrant ssh 
+```
+
+#### 第六步 进入虚拟机 使用xshell
+```
+在cmd下执行
+vagrant ssh-config  
+得到以下信息
+
+Host default
+  HostName 127.0.0.1
+  User vagrant
+  Port 2222
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile C:/Users/aaa/.vagrant.d/boxes/v73/0/virtualbox/vagrant_private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+  
+  
+  C:/Users/aaa/.vagrant.d/boxes/v73/0/virtualbox/vagrant_private_key
+  把这个vagrant box自带的私钥,拷贝到任意目录(不可包含中文目录)
+  然后导入到xshell中, 此私钥 没有密码
+```
+
+![](http://qa3sq0khl.bkt.clouddn.com/20200512181740.png)
 
 
 
