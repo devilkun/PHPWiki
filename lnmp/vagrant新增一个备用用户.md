@@ -60,7 +60,7 @@ sudo useradd -p ${PASSWORD} -m ${USER}
    
 
 2. 编辑/etc/sudoers文件。输入命令
-``` vim /etc/sudoers ```,
+``` vi /etc/sudoers ```,
 ,进入编辑模式，找到这一 行："
 ``` root ALL=(ALL) ALL ```
 在起下面添加"
