@@ -86,3 +86,6 @@ try {
 }
 ```
 
+如果要在Phalcon中使用，记得override `Phalcon\Mvc\Model:: getSchema`
+
+phalcon提供了事务管理器
