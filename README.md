@@ -230,6 +230,16 @@ redis集群方案
 > 2.支持部署后,立刻回滚.
 ### Jenkins
 
+### Crontab Web管理工具
+
+#### jiacrontab
+
+github地址 https://github.com/iwannay/jiacrontab
+
+搭建教程    https://www.xiaoz.me/archives/11640
+
+
+
 ## 项目管理工具
 ### 代码版本管理 
 #### gitlab
