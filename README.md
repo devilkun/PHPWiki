@@ -290,9 +290,19 @@ https://github.com/phachon/mm-wiki
 
 #### 一定要安装的插件
 > java的idea编辑器 比phpstrom的插件更丰富.
-> phpstrom真没啥好插件..我只安装了下面这一个
+> phpstrom真没几个好插件.
 1. Key Promoter X
 > 可自定义修改所有的快捷键
+
+2.Php Inspections
+
+> Php Inspections (EA Extended)
+> 用于PHP的开源静态代码分析器
+
+3.Nyan Progress Bar彩虹导航栏  
+
+
+4.Rainbow Brackets 彩虹{ }括号
 
 ## 技术部规范文档
 > 规范制定后,严格执行才是最大的问题

@@ -12,7 +12,7 @@
 >
 > https://github.com/bullsoft/phalconplus
 
-
+------
 
 
 
@@ -50,7 +50,7 @@
 
 ###  Es的IK分词 [elasticsearch-analysis-ik](https://github.com/medcl/elasticsearch-analysis-ik)
 
-
+------
 
 ## 项目管理相关
 
@@ -76,6 +76,10 @@ Wiki文档管理系统 [mindoc](https://github.com/lifei6671/mindoc)
 >
 > https://www.iminho.me/
 
+------
+
+
+
 ## PHP微服务相关
 
 ### Yar 鸟哥写的
@@ -89,6 +93,10 @@ Wiki文档管理系统 [mindoc](https://github.com/lifei6671/mindoc)
 ### [workerman-jsonrpc](https://github.com/walkor/workerman-jsonrpc)
 
 > workerman作为进程管理器，json作为协议的远程服务调用的框架
+
+------
+
+
 
 ## Linux系统相关
 
@@ -115,6 +123,10 @@ Wiki文档管理系统 [mindoc](https://github.com/lifei6671/mindoc)
 > 已经打包好的 在115网盘里.
 >
 > https://oneinstack.com/install/
+
+------
+
+
 
 ## 监控与性能相关
 
@@ -154,6 +166,14 @@ Wiki文档管理系统 [mindoc](https://github.com/lifei6671/mindoc)
 
 > https://github.com/perftools/xhgui
 
+### Supervisord的Web监控工具
+
+> https://github.com/mlazarov/supervisord-monitor
+
+------
+
+
+
 ## Java相关项目
 
 ### 分布式事务 TCC解决方案框架
@@ -161,6 +181,10 @@ Wiki文档管理系统 [mindoc](https://github.com/lifei6671/mindoc)
 ### webmagic  Java爬虫项目
 
 > https://github.com/code4craft/webmagic
+
+
+
+------
 
 
 
