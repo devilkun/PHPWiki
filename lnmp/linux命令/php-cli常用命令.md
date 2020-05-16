@@ -67,3 +67,13 @@ php --ini
 ###  查看扩展配置信息  扩展版本信息
 
  php --ri yaf
+
+
+
+
+
+### 刷新Opcache缓存
+
+Reset
+
+http://192.168.33.22/ocp.php

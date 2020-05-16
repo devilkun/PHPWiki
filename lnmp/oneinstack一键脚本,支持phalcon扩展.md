@@ -82,9 +82,18 @@ php
 如果php -v显示的版本号与phpinfo()不一致
 请自行 ln /usr/local/php/bin/php /usr/local/php
 
-php-config
-
 phpize
+/usr/local/php/bin/phpize
+
+php-config
+/usr/local/php/bin/php-config
+./configure --with-php-config=/usr/local/php/bin/php-config
+
+/usr/local/php/etc/php.ini
+
+php扩展配置文件
+/usr/local/php/etc/php.d
+
 
 wwwlogs_dir=/data/wwwlogs
 wwwroot_dir=/data/wwwroot
@@ -105,6 +114,11 @@ Nginx/Tengine/OpenResty:
 
 ```
 service nginx {start|stop|status|restart|reload|configtest}
+
+/usr/local/openresty/nginx/sbin/nginx -t
+/usr/local/openresty/nginx/sbin/nginx -s reload
+添加站点配置,目录
+/usr/local/openresty/nginx/conf/vhost/
 ```
 
 MySQL/MariaDB/Percona:
@@ -156,3 +170,16 @@ service memcached {start|stop|status|restart|reload}
 ```
 ./uninstall.sh
 ```
+
+
+
+网站根目录权限遵循：
+文件644 文件夹755 权限用户和用户组www，其余文档777权限是不正常的
+如出现文件权限问题时，请执行下面3条命令：
+
+```
+chown -R www.www /data/wwwroot/
+find /data/wwwroot/ -type d -exec chmod 755 {} \;
+find /data/wwwroot/ -type f -exec chmod 644 {} \;
+```
+

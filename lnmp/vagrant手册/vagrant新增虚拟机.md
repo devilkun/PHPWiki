@@ -23,7 +23,7 @@ https://vagrantcloud.com/centos/boxes/7/versions/1905.1/providers/virtualbox.box
 ```
 vagrant box add 
 
-vagrant box add v73 D:\soft\Vagrantfile\centos7_64.box
+vagrant box add v73 D:\soft\work\vagrantSoft\lnmp73phalcon345.box
 ```
 
 v73 是虚拟机的名字
@@ -82,8 +82,17 @@ Host default
 
 ![](http://qa3sq0khl.bkt.clouddn.com/20200512181740.png)
 
+#### 打包导出虚拟机 共享给其他人使用
+
+```
+vagrant package 打包命令，可以把当前的运行的虚拟机环境进行打包
+打包前,记得关闭虚拟机  vagrant halt
+vagrant package --output lnmp73phalcon345.box
+打包后的box文件,在Vagrantfile所在的目录
+```
 
 
+```
 vagrant halt 关闭本地环境
 vagrant suspend 暂停本地环境
 vagrant resume 恢复本地环境
@@ -92,18 +101,7 @@ vagrant destroy 彻底移除本地环境
 
 显示当前已经添加的box列表  vagrant box list 
 vagrant box remove 删除相应的box
-vagrant package 打包命令，可以把当前的运行的虚拟机环境进行打包
-
-#### 打包导出虚拟机 共享给其他人使用
-
-```
-打包前,记得关闭虚拟机  vagrant halt
-vagrant package --output lnmp73phalcon345.box
-打包后的box文件,在Vagrantfile所在的目录
-```
-
-
-
 vagrant plugin 用于安装卸载插件
 vagrant status 获取当前虚拟机的状态
 vagrant global-status 显示当前用户Vagrant的所有环境状态
+```

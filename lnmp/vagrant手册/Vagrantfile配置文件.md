@@ -49,8 +49,8 @@ Vagrant.configure("2") do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
   #自动同步的目录
-  config.vm.synced_folder "E:/PHP/php", "/data/web/", owner: "www-data", group: "www-data"
-  #config.vm.synced_folder "E:/java/", "/data/java", owner: "www-data", group: "www-data"
+  config.vm.synced_folder "E:/PHP/php", "/data/web/", owner: "www", group: "www"
+  #config.vm.synced_folder "E:/java/", "/data/java", owner: "www", group: "www"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
