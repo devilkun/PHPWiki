@@ -42,21 +42,22 @@ yar.connect_timeout	1000	PHP_INI_ALL
 yar.timeout	5000	PHP_INI_ALL	
 yar.expose_info	On	PHP_INI_SYS
 
+
+
 ```
-yar.packager string
-设置Yar的打包工具, 可以是PHP(serialize), JSON, Msgpack(这个需要编译的时候指定--enable-msgpack).
+;设置Yar的打包工具, 可以是PHP(serialize), JSON, Msgpack(这个需要编译的时候指定--enable-msgpack).
+yar.packager=php
+;打开的时候, Yar会把请求过程的日志都打印出来(到stderr).
+yar.debug = On
+;连接超时(毫秒为单位)
+yar.connect_timeout = 2000
 
-yar.debug string
-打开的时候, Yar会把请求过程的日志都打印出来(到stderr).
+;处理超时(毫秒为单位)
+yar.timeout = 3000
 
-yar.connect_timeout integer
-连接超时(毫秒为单位)
+;如果关闭, 则当通过浏览器访问Server的时候, 不会出现Server Info信息.
+yar.expose_info = true
 
-yar.timeout integer
-处理超时(毫秒为单位)
-
-yar.expose_info bool
-如果关闭, 则当通过浏览器访问Server的时候, 不会出现Server Info信息.
 ```
 
 ### 预定义产量
