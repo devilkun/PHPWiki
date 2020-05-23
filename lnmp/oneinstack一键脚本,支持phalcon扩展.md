@@ -94,6 +94,8 @@ php-config
 php扩展配置文件
 /usr/local/php/etc/php.d
 
+php-fpm配置文件
+/usr/local/php/etc/php-fpm.conf
 
 wwwlogs_dir=/data/wwwlogs
 wwwroot_dir=/data/wwwroot

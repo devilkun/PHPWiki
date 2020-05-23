@@ -34,7 +34,7 @@
 
 ### 同步mysql数据到elasticsearch的工具
 
-#### [mysqlsmom](https://github.com/m358807551/mysqlsmom)
+#### [mysqlsmom](https://githubh.com/m358807551/mysqlsmom)
 
 #### [go-mysql-elasticsearch](https://github.com/siddontang/go-mysql-elasticsearch)
 

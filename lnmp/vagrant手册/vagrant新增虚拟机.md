@@ -23,7 +23,11 @@ https://vagrantcloud.com/centos/boxes/7/versions/1905.1/providers/virtualbox.box
 ```
 vagrant box add 
 
-vagrant box add v73 D:\soft\work\vagrantSoft\lnmp73phalcon345.box
+#家里电脑
+vagrant box add 0518 D:\soft\work\vagrantSoft\20200517.box
+
+#公司电脑
+vagrant box add 0518 D:\soft\Vagrantfile\20200517.box
 ```
 
 v73 是虚拟机的名字

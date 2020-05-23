@@ -1,5 +1,7 @@
 
 
+[TOC]
+
 
 
  [PHP 教父鸟哥 Yar 的原理分析](https://www.cnblogs.com/tianshifu/p/7156591.html)
