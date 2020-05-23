@@ -92,6 +92,7 @@ Host default
 vagrant package 打包命令，可以把当前的运行的虚拟机环境进行打包
 打包前,记得关闭虚拟机  vagrant halt
 vagrant package --output lnmp73phalcon345.box
+vagrant package --output 20200523.box
 打包后的box文件,在Vagrantfile所在的目录
 ```
 
