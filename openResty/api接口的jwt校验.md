@@ -8,6 +8,14 @@ https://www.jianshu.com/p/66d5163b9e99
 
 https://segmentfault.com/a/1190000015677681
 
+https://segmentfault.com/a/1190000007957976
+
+https://blog.csdn.net/daiyudong2020/article/details/53149242
+
+https://github.com/svyatogor/resty-lua-jwt/blob/master/jwt.lua
+
+https://github.com/svyatogor/resty-lua-jwt
+
 
 
 # 作用:
