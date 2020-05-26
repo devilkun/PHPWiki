@@ -27,7 +27,7 @@ vagrant box add
 vagrant box add 0518 D:\soft\work\vagrantSoft\20200517.box
 
 #公司电脑
-vagrant box add 0518 D:\soft\Vagrantfile\20200517.box
+vagrant box add 0525 D:\soft\Vagrantfile\20200523.box
 ```
 
 v73 是虚拟机的名字
