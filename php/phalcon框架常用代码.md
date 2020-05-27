@@ -1,8 +1,44 @@
-> 部分常用代码或者特殊代码的记录
+[TOC]
+
+
+
+
+
+## 1.抛出异常
+
+```
+ErrorHandle::throwErr(Err::create(CoreLogic::INVALID_PARAM, ['phone']));
+```
+
+## 2.create_time/update_time
+
+```
+`create_time` datetime DEFAULT CURRENT_TIMESTAMP,
+`update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+```
+
+## in查询
+
+```
+/**
+ * in查询
+ * @param $ids 数组
+ * @return mixed
+ */
+public static function findInList($ids)
+{
+    return self::find(
+        [
+            'conditions' => ' id IN ({ids:array})',
+            'bind'       => ['ids'=>$ids],
+        ]
+    );
+}
+```
 
 参考 https://segmentfault.com/a/1190000014166424#item-1-11
 
-1.使用数据库事务
+## 使用数据库事务
 
 ```
 <?php
@@ -27,7 +63,7 @@ try {
 
 
 
-2.使用数据库 进行事务嵌套
+## 使用数据库 进行事务嵌套
 
 **事务嵌套产生问题的原因:**
 

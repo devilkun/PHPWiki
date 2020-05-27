@@ -7,7 +7,7 @@
 mysql -uroot -p
 添加一个用户名为db_user，密码为123456，授权为% （%表示所有IP能连接）
 对db_test数据库有所有权限
-grant all privileges on db_lailai.* to db_user@'%' identified by '123456';
+grant all privileges on dbuser.* to db_user@'%' identified by '123456';
 flush privileges;
 exit;//退出
 

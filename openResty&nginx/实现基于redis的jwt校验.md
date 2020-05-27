@@ -16,8 +16,6 @@ https://github.com/svyatogor/resty-lua-jwt/blob/master/jwt.lua
 
 https://github.com/svyatogor/resty-lua-jwt
 
-
-
 # 作用:
 
 用 openresty 来实现 jwt 协议，做 api 访问的验真，可以降低后台系统的复杂程度，
@@ -28,7 +26,7 @@ https://github.com/svyatogor/resty-lua-jwt
 
 # openresty安装jwt模块
 
-叫 [lua-resty-jwt](https://github.com/SkyLothar/lua-resty-jwt) 的，还有基于它做了二次封装的 [openresty-nginx-jwt](https://github.com/ubergarm/openresty-nginx-jwt)
+ [lua-resty-jwt](https://github.com/SkyLothar/lua-resty-jwt) 
 
 
 
@@ -76,7 +74,7 @@ wget  https://github.com/SkyLothar/lua-resty-jwt/archive/v0.1.11.zip
 
 > https://packagist.org/packages/dmkit/phalcon-jwt-auth
 
-##  使用了JWT.php
+##  JWT.php
 
 
 
@@ -87,15 +85,7 @@ wget  https://github.com/SkyLothar/lua-resty-jwt/archive/v0.1.11.zip
 [jwtAuth]
 
 ; JWT Secret Key 密钥
-secretKey = R6v7TUC0Xj0nCPzZDwkrgKAqjxZrWUPR
-;token有效期 7天
-exp = 604800
-
-;忽略的url
-; ignoreUri[] = /auth/user:POST,PUT
-; ignoreUri[] = /auth/application
-
-
+secretKey = xxxxxxxxxxx
 
 ```
 
