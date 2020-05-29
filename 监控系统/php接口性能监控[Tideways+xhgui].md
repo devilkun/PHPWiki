@@ -79,6 +79,9 @@ db.results.ensureIndex( { 'profile.main().mu' : -1 } )
 db.results.ensureIndex( { 'profile.main().cpu' : -1 } )
 db.results.ensureIndex( { 'meta.url' : 1 } )
 
+//这一条很重要 只保留14天的数据  不然数据越来越多  老数据也不看  没有意义
+db.results.ensureIndex( { "meta.request_ts" : 1 }, { expireAfterSeconds : 3600*24*14 } )
+
 
 ```
 
@@ -199,6 +202,39 @@ vim /etc/hosts
 新增
 127.0.0.1 xhgui.com
 ```
+
+
+
+## 设置要监控的站点
+
+```
+fastcgi_param PHP_VALUE "auto_prepend_file=/path/xhgui-branch/external/header.php";
+参考
+server {
+    listen       80;
+    server_name  laravel.test;
+    root         /Users/yaozm/Documents/wwwroot/laravel/public;
+
+    # access_log  /usr/local/var/log/nginx/access.log;
+    error_log  /usr/local/var/log/nginx/error.log;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+        index  index.php index.html index.htm;
+    }
+    # 添加 PHP_VALUE，告诉 PHP 程序在执行前要调用的服务
+    fastcgi_param PHP_VALUE "auto_prepend_file=/path/wwwroot/xhgui-branch/external/header.php";
+}
+
+或者也可以在修改 PHP.ini 配置文件，告诉 PHP 程序在执行前要调用的服务
+但是  所有的php请求 都会被监控  建议 分项目监控
+auto_prepend_file = "/path/wwwroot/xhgui-branch/external/header.php"
+
+```
+
+### 
+
+
 
 
 

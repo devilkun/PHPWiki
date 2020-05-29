@@ -7,6 +7,7 @@
 ## 安装
 
 ```
+先安装依赖环境   用一键脚本 就不需要执行这俩命令了
 yum install -y python-pip  
 pip install pip --upgrade
 
@@ -14,7 +15,13 @@ pip install pip --upgrade
 
 使用春城提供的一键安装脚本  带自动配置功能.
 
-以下问安装日志
+```
+请看D:\soft\Vagrantfile\install_supervisord.zip
+```
+
+
+
+以下为安装日志
 
 ```
 Searching for supervisor

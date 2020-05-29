@@ -23,13 +23,25 @@ make && make install
 
 
 ### 安装yar扩展
-1.下载最新版源码包  并解压
-下载地址  https://pecl.php.net/package/yar
-2.phpize
-./configure --with-php-config=/usr/local/php/bin/php-config  --enable-msgpack
+
+```
+wget https://pecl.php.net/get/yar-2.0.7.tgz
+tar zxvf 
+cd yar-2.0.7
+/usr/local/php/bin/phpize
+./configure --with-php-config=/usr/local/php/bin/php-config
 make && make install
-3.修改php.ini 添加yar扩展信息
-4.重启php-fpm 查看phpinfo()信息,是否安装成功
+
+#修改php.ini 添加yar扩展信息
+
+#重启php-fpm 查看phpinfo()信息,是否安装成功
+
+```
+
+
+
+ 
+
 
 
 

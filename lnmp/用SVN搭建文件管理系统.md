@@ -147,7 +147,7 @@ dev = zhangsan
 
 ```
 检查authz文件是否正确
-svnauthz-validate /data/svn/LQPLAY/conf/authz
+svnauthz-validate /root/svn/doc/conf/authz
 
 启动SVN的服务(-d:Deamon; -r:Root)
 svnserve -d -r /root/svn/
