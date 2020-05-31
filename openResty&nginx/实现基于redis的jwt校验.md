@@ -39,6 +39,25 @@ https://github.com/svyatogor/resty-lua-jwt
 ```
 //安装依赖组件
 yum -y install perl-Digest-MD5
+yum install yum-utils
+添加仓库
+sudo yum-config-manager --add-repo https://openresty.org/package/centos/openresty.repo
+安装命令行工具 resty
+sudo yum install openresty-resty
+安装命令行工具 opm
+sudo yum install openresty-opm
+
+
+//安装命令   在/usr/local/openresty目录下执行
+opm get SkyLothar/lua-resty-jwt
+//安装成功后会在
+/usr/local/openresty/site/lualib/resty
+/usr/local/openresty/lualib/resty
+```
+
+**这段可以跳过**
+
+```
 
 把openresty命令加到系统变量PATH里去
 vim /etc/profile
@@ -46,25 +65,17 @@ vim /etc/profile
 :/usr/local/openresty/bin
 然后执行下面这个命令,
 source /etc/profile
-
-
-//安装命令   在openresty目录下执行
-opm get SkyLothar/lua-resty-jwt
-//安装成功后会在
-/usr/local/openresty/site/lualib/resty
-/usr/local/openresty/lualib/resty
 ```
 
 
 
-### 源码安装
+用github里的jwt.luw文件替换
 
 ```
-wget  https://github.com/SkyLothar/lua-resty-jwt/archive/v0.1.11.zip
+github地址:https://github.com/feng99/lua-jwt-redis.git
 
+/usr/local/openresty/site/lualib/resty/jwt.lua
 ```
-
-
 
 
 

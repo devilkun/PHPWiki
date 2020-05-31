@@ -18,6 +18,12 @@ curl -o /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
 yum makecache 
 ```
 
+3.安装一些基础命令
+
+```
+yum install -y zip & yum install -y unzip & yum install -y htop & yum -y install lrzsz 
+```
+
 
 
 网址: 建议选择交互安装  只选自己需要的
