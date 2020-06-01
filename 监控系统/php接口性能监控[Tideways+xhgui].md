@@ -16,7 +16,7 @@ PHP接口性能监控
 
 PHP7.+
 
-PHP扩展  Tideways5.0+        mongodb1.7
+PHP扩展  Tideways5.0+        mongodb3.+
 
 MongoDB3.+ 
 
@@ -92,10 +92,9 @@ db.results.ensureIndex( { "meta.request_ts" : 1 }, { expireAfterSeconds : 3600*2
 ```
  git clone https://github.com/tideways/php-xhprof-extension.git
  cd /path/php-xhprof-extension
- phpize
- ./configure
- make
- sudo make install
+ /usr/local/php/bin/phpize
+./configure --with-php-config=/usr/local/php/bin/php-config
+ make & make install
  
  
 
@@ -163,7 +162,7 @@ server {
     #这里的域名  是需要添加host的
     server_name  xhgui.com;
     #注意修改这里的路径
-    set         $root_path '/data/softdata/xhgui-branch/webroot';
+    set         $root_path '/data/web/xhgui-branch/webroot';
     root        $root_path;
 
    

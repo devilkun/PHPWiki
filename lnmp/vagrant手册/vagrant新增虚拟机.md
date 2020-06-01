@@ -24,15 +24,13 @@ https://vagrantcloud.com/centos/boxes/7/versions/1905.1/providers/virtualbox.box
 vagrant box add 
 
 #家里电脑
-vagrant box add 0518 D:\soft\work\vagrantSoft\20200517.box
+vagrant box add 0529 D:\soft\vagrantbox\20200529.box
 
 #公司电脑
 vagrant box add 0525 D:\soft\Vagrantfile\20200523.box
+
+0529 是虚拟机的名字    后面的是系统box文件的路径
 ```
-
-v73 是虚拟机的名字
-
-后面的是系统box文件的路径
 
 #### 第二步  初始化虚拟机
 
@@ -44,7 +42,11 @@ vagrant init
 
 #### 第三步 修改配置文件Vagrantfile
 
-请看vagrantfile备份.md
+```
+请使用 vagrantfile精简配置文件
+```
+
+
 
 #### 第四步 启动虚拟机
 启动本地环境
