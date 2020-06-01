@@ -36,6 +36,48 @@ public static function findInList($ids)
 }
 ```
 
+
+
+## 插入新数据后,获取最新的主键id
+
+```
+$newTag = new \App\Sdks\Models\TagModel();
+$res = $newTag->create([
+      'tag_name' => 'test1',
+      'is_delete'=>0
+       ]);
+ //打印添加是否成功
+ var_dump($res);
+ //打印最新的主键id
+ var_dump($newTag->tag_id);
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 参考 https://segmentfault.com/a/1190000014166424#item-1-11
 
 ## 使用数据库事务
