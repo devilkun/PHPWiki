@@ -79,6 +79,9 @@ sz 文件名称
 chown [-R] 账号名称:用户组名称 文件或目录
 示例  把/data/logs的权限交给nginx的www用户
 用户组 必须再/etc/group里存在
-chown -R www:www /data/logs 
+chown -R www:www /data/logs/ 
+以下命令可选
+find /data/wwwroot/ -type d -exec chmod 755 {} \;
+find /data/wwwroot/ -type f -exec chmod 644 {} \;
 ```
 
