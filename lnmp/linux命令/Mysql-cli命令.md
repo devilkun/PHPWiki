@@ -4,13 +4,39 @@
 
 ```
 进入mysql
+/usr/local/mysql/bin/mysql -uroot -p
 mysql -uroot -p
 添加一个用户名为db_user，密码为123456，授权为% （%表示所有IP能连接）
 对db_test数据库有所有权限
-grant all privileges on dbuser.* to db_user@'%' identified by '123456';
+下面这个sql语句 执行第二次  会覆盖第一次的密码
+grant all privileges on dbstatis.* to db_user@'%' identified by 'miai888gtopphp';
 flush privileges;
 exit;//退出
 
 
+```
+
+
+
+### 创建数据库
+
+```
+CREATE DATABASE IF NOT EXISTS dbstatis  DEFAULT CHARACTER SET utf8;
+```
+
+
+
+### MySQL报错：[Err] 1055 - Expression #1 of ORDER BY clause is not in GROUP BY clause
+
+```
+select version(),
+@@sql_mode;SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+```
+
+### 临时  用完删除
+
+```
+grant all privileges on dbcmsucenter.* to db_user@'%' identified by 'miai888gtopphp';
+flush privileges;
 ```
 

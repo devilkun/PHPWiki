@@ -4,18 +4,36 @@
 
 
 
-## 1.抛出异常
+## 抛出异常
 
 ```
 ErrorHandle::throwErr(Err::create(CoreLogic::INVALID_PARAM, ['phone']));
 ```
 
-## 2.create_time/update_time
+## create_time/update_time
 
 ```
 `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
 `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 ```
+
+## 简单的查询    使用参数绑定  杜绝SQL注入的问题
+
+```
+public static function findList()
+    {
+        return self::find(
+        	[
+            	"conditions" => "id > :id:",
+            	'bind' => [
+                	"id" => 0
+            	]
+         	]
+         )->toArray();
+    }
+```
+
+
 
 ## in查询
 
@@ -51,6 +69,44 @@ $res = $newTag->create([
  //打印最新的主键id
  var_dump($newTag->tag_id);
 ```
+
+## 操作Redis
+
+```
+$redis = DiHelper::getRedis();
+$key   = sprintf(RedisKey::USER_RONGYUN_TOKEN, $uuid);
+$redis->set($key,$register->token,RedisKey::expire(RedisKey::USER_RONGYUN_TOKEN));
+```
+
+## Rpc客户端调用示例
+
+> 必须用try{ }catch{ }包起来
+>
+> 定一个rpc返回异常的code  
+
+```
+	try {
+            $client = DiHelper::getRpcClient();
+            $rpcRes = $client->getUserInfo('120017');
+            if($rpcRes['code'] !== 0){
+                ErrorHandle::throwErr(Err::create(CoreLogic::RPC_ERROR, [$rpcRes['code'].$rpcRes['msg']]));
+            }
+        } catch (Exception $e) {
+            throw new JsonFmtException($e->getMessage(), $e->getCode());
+        }
+```
+
+## 打印日志 支持数组格式
+
+```
+//打印字符串
+LogHelper::debug("userServer-UserLogin","userId:12007");
+
+//打印数组  后续会自动进行转换为json
+LogHelper::debug("userServer-UserLogin",['userId'=>12007,'nickName'=> '天下独舞']);
+```
+
+
 
 
 

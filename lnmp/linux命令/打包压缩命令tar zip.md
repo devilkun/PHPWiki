@@ -25,29 +25,6 @@ tar cvf www.tw_disk_cmstop.tar /disk/cmstop/ --exclude=cmstop
 解压：tar zxvf FileName.tar.gz
 压缩：tar zcvf FileName.tar.gz DirName
 ---------------------------------------------
-.bz2
-解压1：bzip2 -d FileName.bz2
-解压2：bunzip2 FileName.bz2
-压缩： bzip2 -z FileName
-.tar.bz2
-解压：tar jxvf FileName.tar.bz2
-压缩：tar jcvf FileName.tar.bz2 DirName
----------------------------------------------
-.bz
-解压1：bzip2 -d FileName.bz
-解压2：bunzip2 FileName.bz
-压缩：未知
-.tar.bz
-解压：tar jxvf FileName.tar.bz
-压缩：未知
----------------------------------------------
-.Z
-解压：uncompress FileName.Z
-压缩：compress FileName
-.tar.Z
-解压：tar Zxvf FileName.tar.Z
-压缩：tar Zcvf FileName.tar.Z DirName
----------------------------------------------
 经过测试,这个好使!
 .tgz
 解压：tar zxvf FileName.tgz
