@@ -1,6 +1,3 @@
-[TOC]
-
-
 
 # 参考文章
 
@@ -172,41 +169,25 @@ server {
     server_name phalcondemo.com;
     set         $root_path '/data/web/github/phalcondemo/public';
     root        $root_path;
-
-
     index index.php index.html index.htm;
 
     try_files $uri $uri/ @rewrite;
-
     location @rewrite {
         rewrite ^/(.*)$ /index.php?_url=/$1;
     }
-
     set $redhost "127.0.0.1";
     set $redport 6379;
-
     location ~ \.php {
-	access_by_lua_file /usr/local/openresty/nginx/conf/lualib/jwt.lua;
-        # try_files    $uri =404;
-
+	   access_by_lua_file /usr/local/openresty/nginx/conf/lualib/jwt.lua;
         fastcgi_index  /index.php;
         #fastcgi_pass   127.0.0.1:9000;
-	fastcgi_pass unix:/dev/shm/php-cgi.sock;
-
-	include fastcgi.conf;
+ 	   fastcgi_pass unix:/dev/shm/php-cgi.sock;
+	    include fastcgi.conf;
         fastcgi_split_path_info       ^(.+\.php)(/.+)$;
         fastcgi_param PATH_INFO       $fastcgi_path_info;
         fastcgi_param PATH_TRANSLATED $document_root$fastcgi_path_info;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    }
-
-    location ~* ^/(css|img|js|flv|swf|download)/(.+)$ {
-        root $root_path;
-    }
-
-    location ~ /\.ht {
-        deny all;
-    }
+    }    
 }
 
 ```

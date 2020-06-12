@@ -85,3 +85,14 @@ find /data/wwwroot/ -type d -exec chmod 755 {} \;
 find /data/wwwroot/ -type f -exec chmod 644 {} \;
 ```
 
+### Win10 查看最近打开过的文件和文件夹
+
+```
+win+R打开运行窗口输入  recent
+
+这个蛮重要的一个命令   决定乱入一下  记录下.
+作用
+1.查找自己这几天打开的某个文件   有时候想再打开看看,却找不到
+2.查看别人是否动过我的电脑,你懂得.
+```
+

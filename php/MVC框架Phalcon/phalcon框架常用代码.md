@@ -8,6 +8,12 @@
 
 ```
 ErrorHandle::throwErr(Err::create(CoreLogic::INVALID_PARAM, ['phone']));
+
+//操作失败
+ErrorHandle::throwErr(Err::create(CoreLogic::OPERATE_ERROR, ['phone']));
+
+//没有权限
+ErrorHandle::throwErr(Err::create(CoreLogic::PERMISSION_ERROR, ['phone']));
 ```
 
 ## create_time/update_time
@@ -107,6 +113,18 @@ LogHelper::debug("userServer-UserLogin",['userId'=>12007,'nickName'=> '天下独
 ```
 
 
+
+## Redis内存锁
+
+```
+$redis = DiHelper::getSharedRedis();
+LockManager::init($redis);
+//获取锁
+LockManager::lock($key);
+
+//释放锁
+LockManager::unlock($key);
+```
 
 
 
