@@ -109,7 +109,7 @@ LogHelper::debug("userServer-UserLogin",['userId'=>12007,'nickName'=> '天下独
 
 
 
-## Redis内存锁
+## Redis内存锁的使用
 
 ```
 $redis = DiHelper::getSharedRedis();
@@ -121,9 +121,13 @@ LockManager::lock($key);
 LockManager::unlock($key);
 ```
 
+## MongoDB 操作
 
+```
+$roomMongoDao = new RoomMongoDao();
 
-
+$userMongoDao = new UserMongoDao();
+```
 
 
 

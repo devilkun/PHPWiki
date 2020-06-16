@@ -1,13 +1,13 @@
 ## 概念区别
 
-|    Mysql    |               MongoDB                |
-| :---------: | :----------------------------------: |
-|    库DB     |                 库DB                 |
-|   表Table   |           集合collections            |
-|    行Row    |            文档documents             |
-|  列fields   |              字段fields              |
-|   表 Join   |               内嵌文档               |
-| 主键id 自增 | 主键（由 MongoDB 提供的默认 key_id） |
+|    Mysql    |             MongoDB              |
+| :---------: | :------------------------------: |
+|    库DB     |               库DB               |
+|   表Table   |         集合collections          |
+|    行Row    |          文档documents           |
+|  列fields   |            字段fields            |
+|   表 Join   |             内嵌文档             |
+| 主键id 自增 | 主键（由 MongoDB 提供的默认_id） |
 
 
 
