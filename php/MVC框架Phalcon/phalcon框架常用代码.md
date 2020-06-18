@@ -131,6 +131,33 @@ $userMongoDao = new UserMongoDao();
 
 
 
+## 生成随机数 随机字符串
+
+```
+$random = new Random();
+
+//生成一个0-N之间的随机数字
+//可用于redis key加随机数,防止缓存雪崩问题
+$number     = $random->number($n);
+
+// ...
+$bytes      = $random->bytes();
+
+// 随机生成一个长度为$length的十六进制字符串
+$hex        = $random->hex($length);
+
+// 随机生成长度为$length的base64字符串
+$base64     = $random->base64($length);
+
+// 生产一个长度为$length的安全base64字符串.
+$base64Safe = $random->base64Safe($length);
+
+// 生成一个UUId
+// See https://en.wikipedia.org/wiki/Universally_unique_identifier
+$uuid       = $random->uuid();
+
+
+```
 
 
 
@@ -148,6 +175,7 @@ $userMongoDao = new UserMongoDao();
 
 
 
+---
 
 
 
