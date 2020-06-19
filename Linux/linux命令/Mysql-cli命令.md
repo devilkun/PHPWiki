@@ -21,7 +21,7 @@ exit;//退出
 ### 创建数据库
 
 ```
-CREATE DATABASE IF NOT EXISTS dbstatis  DEFAULT CHARACTER SET utf8;
+CREATE DATABASE IF NOT EXISTS dbcontent  DEFAULT CHARACTER SET utf8mb4;
 ```
 
 
@@ -36,7 +36,7 @@ select version(),
 ### 临时  用完删除
 
 ```
-grant all privileges on dbcmsucenter.* to db_user@'%' identified by 'miai888gtopphp';
+grant all privileges on dbcontent.* to db_user@'%' identified by 'miai888gtopphp';
 flush privileges;
 ```
 

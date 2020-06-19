@@ -2,10 +2,14 @@
 ## 抛出异常
 
 ```
+//参数错误
 ErrorHandle::throwErr(Err::create(CoreLogic::INVALID_PARAM, ['phone']));
 
 //操作失败
 ErrorHandle::throwErr(Err::create(CoreLogic::OPERATE_ERROR, ['phone']));
+
+//重复操作
+ErrorHandle::throwErr(Err::create(CoreLogic::REPEAT_SEND_ERROR, ['']));
 
 //没有权限
 ErrorHandle::throwErr(Err::create(CoreLogic::PERMISSION_ERROR, ['phone']));
@@ -127,6 +131,8 @@ LockManager::unlock($key);
 $roomMongoDao = new RoomMongoDao();
 
 $userMongoDao = new UserMongoDao();
+
+$roomWaitUserMongoDao = new RoomWaitUserMongoDao();
 ```
 
 
