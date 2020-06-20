@@ -130,9 +130,9 @@ LockManager::unlock($key);
 ```
 $roomMongoDao = new RoomMongoDao();
 
-$userMongoDao = new UserMongoDao();
-
 $roomWaitUserMongoDao = new RoomWaitUserMongoDao();
+
+$userMongoDao = new UserMongoDao();
 ```
 
 
