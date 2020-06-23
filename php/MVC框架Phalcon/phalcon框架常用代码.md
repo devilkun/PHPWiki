@@ -22,20 +22,71 @@ ErrorHandle::throwErr(Err::create(CoreLogic::PERMISSION_ERROR, ['phone']));
 `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 ```
 
-## 简单的查询    使用参数绑定  杜绝SQL注入的问题
+## 查询    使用参数绑定  杜绝SQL注入的问题
+
+官方文档
+
+https://www.kancloud.cn/jaya1992/phalcon_doc_zh/753278
+
+不带注释说明的版本
 
 ```
 public static function findList()
     {
         return self::find(
         	[
-            	"conditions" => "id > :id:",
+	        	'columns' => 'id,name',
+            	"conditions" => "id > :id: AND is_delete = 0",
             	'bind' => [
                 	"id" => 0
-            	]
+            	],
+            	'order'      => "id desc",
+			   'offset' => 5
+            	"limit"	=> 20,
+
          	]
          )->toArray();
     }
+```
+
+带注释说明的版本
+
+```
+public static function findList()
+    {
+        return self::find(
+        	[
+        		//返回指定的字段
+	        	'columns' => 'id,name',
+        		//查询条件
+            	"conditions" => "id > :id: AND is_delete = 0",
+            	//参数绑定
+            	'bind' => [
+                	"id" => 0
+            	],
+            	//指定排序条件
+            	'order'      => "id desc",
+            	//将查询结果偏移一定量  配合limit做分页查询
+            	'offset' => 5
+            	//限制返回数据的条数
+            	"limit"	=> 20,
+            	
+         	]
+         )->toArray();
+    }
+```
+
+另一种写法,面向对象的方式
+
+没有哪种更好, 我跟习惯上面的写法.
+
+```
+$robots = Robots::query()
+    ->where('type = :type:')
+    ->andWhere('year < 2000')
+    ->bind(['type' => 'mechanical'])
+    ->order('name')
+    ->execute();
 ```
 
 
@@ -58,6 +109,57 @@ public static function findInList($ids)
     );
 }
 ```
+
+## 悲观锁 的使用
+
+**又称为  独占锁,排他锁**
+
+使用此选项，`Phalcon\Mvc\Model` 将读取最新的可用数据，并在其读取的每一行上设置独占锁。
+
+使用场景: 建议在只查询一条数据的情况下使用  
+
+```
+'for_update' => true
+```
+
+**使用样例**
+
+```
+public static function findList()
+    {
+        return self::findFirst(
+        	[
+        		//返回指定的字段
+	        	'columns' => 'id,name',
+        		//查询条件
+            	"conditions" => "id > :id: AND is_delete = 0",
+            	//参数绑定
+            	'bind' => [
+                	"id" => 0
+            	],
+            	//指定排序条件
+            	'order'      => "id desc",
+            	//将查询结果偏移一定量  配合limit做分页查询
+            	'offset' => 5
+            	//限制返回数据的条数
+            	"limit"	=> 20,
+            	
+         	]
+         )->toArray();
+    }
+```
+
+
+
+## 共享锁的使用
+
+使用此选项， `Phalcon\Mvc\Model` 将读取最新的可用数据，并在其读取的每一行上设置共享锁。
+
+```
+'shared_lock' => true
+```
+
+
 
 
 
@@ -193,8 +295,9 @@ $uuid       = $random->uuid();
 <?php
 
 try {
+	$db = DiHelper::getDB();
     // 开启一个事务 Start a transaction 
-    $connection->begin();
+    $db->begin();
 
     // 执行一些SQL
     $connection->execute('DELETE `robots` WHERE `id` = 101');
@@ -202,11 +305,11 @@ try {
     $connection->execute('DELETE `robots` WHERE `id` = 103');
 
     // 提交事务
-    $connection->commit();
+    $db->commit();
 } catch (Exception $e) {
     // 发生异常，回滚事务
     // 使用事务,必须捕获异常
-    $connection->rollback();
+    $db->rollback();
 }
 ```
 
