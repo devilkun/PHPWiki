@@ -269,7 +269,51 @@ $uuid       = $random->uuid();
 
 
 
+## 数字计算  加减乘除
 
+https://php.net/manual/en/function.bcadd.php
+
+```
+//加法 1+2
+bcadd(1,2);
+
+//减法 2-1
+bcsub(2,1);
+
+//乘法 1x2
+bcmul(1,2);
+
+//除法 2/1
+bcdiv(2,1)
+//除法  小数点后保留2位
+bcdiv(2,1,2);
+```
+
+
+
+## 用SQL语句的方式更新数据
+
+> 使用场景:  与钱相关的数据,库存数量  钱包余额等    不能直接覆盖   
+>
+> 例子  
+>
+> 正确的SQL     set  count = count +1  
+>
+> 错误的SQL     set count = 2
+>
+> 原因:
+>
+> 并发情况下  直接赋值,会与其他线程,互相覆盖数据.
+
+```
+  //更新数据
+  $db = DiHelper::getDB();
+  $sql = "UPDATE tableName SET count = count + 1  WHERE `unique_key`=:unique_key";
+  if (!$db->execute($sql, ['unique_key' => $data['unique_key']]) || $db->affectedRows() < 1) {
+  	  //更新失败
+      return false;
+  }
+```
 
 
 

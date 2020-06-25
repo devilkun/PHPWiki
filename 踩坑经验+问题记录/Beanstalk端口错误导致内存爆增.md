@@ -74,5 +74,17 @@ liveServer
 
 <font color=#FF0000 >1.连接beanstalk失败    配置里设置了超时时间, 应该提示超时,为何会内存溢出?</font>
 
-2.如何监控进程的内存占用?  
+https://github.com/alanhartless/mautic/pull/12
+
+找打答案了  是pheanstalk的Bug
+
+升级到4.0最新版 这个问题已经解决了
+
+```
+upgrade to "leezy/pheanstalk-bundle": "^4.0"
+```
+
+
+
+
 
