@@ -1,4 +1,21 @@
 
+
+# MVC操作
+
+## 接收参数,并指定参数类型
+
+```
+// POST
+$this->request->getPost('page', 'int'); 
+
+
+$post = $this->getRequest()->getPost("uuid","int");
+```
+
+
+
+
+
 ## 抛出异常
 
 ```
@@ -15,12 +32,22 @@ ErrorHandle::throwErr(Err::create(CoreLogic::REPEAT_SEND_ERROR, ['']));
 ErrorHandle::throwErr(Err::create(CoreLogic::PERMISSION_ERROR, ['phone']));
 ```
 
+
+
+# Mysql数据库操作
+
 ## create_time/update_time
 
 ```
 `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
 `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 ```
+
+
+
+
+
+
 
 ## 查询    使用参数绑定  杜绝SQL注入的问题
 
@@ -39,6 +66,9 @@ public static function findList()
             	"conditions" => "id > :id: AND is_delete = 0",
             	'bind' => [
                 	"id" => 0
+            	],
+            	'bindTypes' => [
+	            	"id" => Column::BIND_PARAM_INT
             	],
             	'order'      => "id desc",
 			   'offset' => 5
@@ -63,6 +93,9 @@ public static function findList()
             	//参数绑定
             	'bind' => [
                 	"id" => 0
+            	],
+            	'bindTypes' => [
+	            	"id" => Column::BIND_PARAM_INT
             	],
             	//指定排序条件
             	'order'      => "id desc",
@@ -91,7 +124,22 @@ $robots = Robots::query()
 
 
 
-## in查询
+## 防止SQL隐式类型转换问题
+
+> 以下均能作用于In查询的数组
+
+| 绑定类型 | 绑定类型常量               | 示例 |
+| -------- | -------------------------- | ---- |
+| string   | Column::BIND_PARAM_STR     |      |
+| int      | Column::BIND_PARAM_INT     |      |
+| double   | Column::BIND_PARAM_DECIMAL |      |
+| bool     | Column::BIND_PARAM_BOOL    |      |
+| blob     | Column::BIND_PARAM_BLOB    |      |
+| null     | Column::BIND_PARAM_NULL    |      |
+
+
+
+## IN查询
 
 ```
 /**
@@ -177,7 +225,47 @@ $res = $newTag->create([
  var_dump($newTag->tag_id);
 ```
 
-## 操作Redis
+## 用SQL语句的方式更新数据
+
+> 使用场景:  与钱相关的数据,库存数量  钱包余额等    不能直接覆盖   
+>
+> 例子  
+>
+> 正确的SQL     set  count = count +1  
+>
+> 错误的SQL     set count = 2
+>
+> 原因:
+>
+> 并发情况下  直接赋值,会与其他线程,互相覆盖数据.
+
+```
+  //更新数据
+  $db = DiHelper::getDB();
+  $sql = "UPDATE tableName SET count = count + 1  WHERE `unique_key`=:unique_key";
+  if (!$db->execute($sql, ['unique_key' => $data['unique_key']]) || $db->affectedRows() < 1) {
+  	  //更新失败
+      return false;
+  }
+```
+
+
+
+## 用SQL语句的方式查询数据[分页]
+
+```
+
+```
+
+
+
+
+
+
+
+
+
+# 操作Redis
 
 ```
 $redis = DiHelper::getRedis();
@@ -185,7 +273,21 @@ $key   = sprintf(RedisKey::USER_RONGYUN_TOKEN, $uuid);
 $redis->set($key,$register->token,RedisKey::expire(RedisKey::USER_RONGYUN_TOKEN));
 ```
 
-## Rpc客户端调用示例
+## Redis内存锁的使用
+
+```
+$redis = DiHelper::getSharedRedis();
+LockManager::init($redis);
+//获取锁
+LockManager::lock($key);
+
+//释放锁
+LockManager::unlock($key);
+```
+
+
+
+# Rpc客户端调用示例
 
 > 必须用try{ }catch{ }包起来
 >
@@ -203,7 +305,7 @@ $redis->set($key,$register->token,RedisKey::expire(RedisKey::USER_RONGYUN_TOKEN)
         }
 ```
 
-## 打印日志 支持数组格式
+# 打印日志 支持数组格式
 
 ```
 //打印字符串
@@ -211,30 +313,6 @@ LogHelper::debug("userServer-UserLogin","userId:12007");
 
 //打印数组  后续会自动进行转换为json
 LogHelper::debug("userServer-UserLogin",['userId'=>12007,'nickName'=> '天下独舞']);
-```
-
-
-
-## Redis内存锁的使用
-
-```
-$redis = DiHelper::getSharedRedis();
-LockManager::init($redis);
-//获取锁
-LockManager::lock($key);
-
-//释放锁
-LockManager::unlock($key);
-```
-
-## MongoDB 操作
-
-```
-$roomMongoDao = new RoomMongoDao();
-
-$roomWaitUserMongoDao = new RoomWaitUserMongoDao();
-
-$userMongoDao = new UserMongoDao();
 ```
 
 
@@ -291,34 +369,6 @@ bcdiv(2,1,2);
 
 
 
-## 用SQL语句的方式更新数据
-
-> 使用场景:  与钱相关的数据,库存数量  钱包余额等    不能直接覆盖   
->
-> 例子  
->
-> 正确的SQL     set  count = count +1  
->
-> 错误的SQL     set count = 2
->
-> 原因:
->
-> 并发情况下  直接赋值,会与其他线程,互相覆盖数据.
-
-```
-  //更新数据
-  $db = DiHelper::getDB();
-  $sql = "UPDATE tableName SET count = count + 1  WHERE `unique_key`=:unique_key";
-  if (!$db->execute($sql, ['unique_key' => $data['unique_key']]) || $db->affectedRows() < 1) {
-  	  //更新失败
-      return false;
-  }
-```
-
-
-
-
-
 
 
 
@@ -333,7 +383,7 @@ bcdiv(2,1,2);
 
 参考 https://segmentfault.com/a/1190000014166424#item-1-11
 
-## 使用数据库事务
+# 数据库事务
 
 ```
 <?php
@@ -359,7 +409,7 @@ try {
 
 
 
-## 使用数据库 进行事务嵌套
+# 事务嵌套
 
 **事务嵌套产生问题的原因:**
 
