@@ -153,6 +153,9 @@ public static function findInList($ids)
         [
             'conditions' => ' id IN ({ids:array})',
             'bind'       => ['ids'=>$ids],
+            'bindTypes' => [
+	            	"ids" => Column::BIND_PARAM_INT
+            ],
         ]
     );
 }
