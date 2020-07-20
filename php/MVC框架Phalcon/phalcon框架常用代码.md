@@ -262,6 +262,42 @@ $res = $newTag->create([
 
 
 
+## Orm方式 model  Dao 翻页
+
+```
+public static function getListPage($params)
+    {
+        $page       = self::getPageArgs($params);
+        $filters    = self::getFilter($params);
+
+        $conditions = [
+            'conditions' => implode(' AND ', $filters['filter']),
+            'bind' => $filters['bind'],
+            'bindTypes' => $filters['bindTypes']
+        ];
+
+        $total = FollowDao::count($conditions);
+        $data = [];
+        if ($total > 0) {
+            $where = [
+                'columns'   => 'auuid,buuid,op_time,create_time',
+                'offset'    => $page['start'],
+                'limit'     => $page['pageSize'],
+                'order'     => 'id DESC'
+            ];
+            $where = array_merge($conditions, $where);
+            $data = FollowDao::find($where)->toArray();
+
+            if($params['fans'] == 1){
+                $data = self::listFill($data,'auuid');
+            }else{
+                $data = self::listFill($data,'buuid');
+            }
+        }
+        return self::flashPageData($total, $data, $page);
+    }
+```
+
 
 
 

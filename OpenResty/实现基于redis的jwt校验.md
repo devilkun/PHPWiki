@@ -368,3 +368,9 @@ end
 不传递jwt token
 
 ![image-20200526102152286](http://qa3sq0khl.bkt.clouddn.com/image-20200526102152286.png)
+
+
+
+## 注意事项
+
+1.lua连接redis只支持IP端口方式    不支持域名   消息来源:mark  
