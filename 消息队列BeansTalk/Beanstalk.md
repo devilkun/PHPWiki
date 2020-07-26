@@ -6,11 +6,13 @@ rabbitmq是消息队列(message queue)，着重点在于保证消息的分发传
 beanstalk是任务队列(task queue)或是说作业队列(job queue)，着重点在保证任务执行。
 从本质上来说他俩是不同的中间件。
 
-**性能对比**
+## 性能对比
 
-![image-20200514155036257](http://qa3sq0khl.bkt.clouddn.com/image-20200514155036257.png)
+![image-20200726181701945](imgs/image-20200726181701945.png)
 
- 
+## 核心概念
+
+![image-20200726181753092](imgs/image-20200726181753092.png)
 
 beantalkd  特有的生产者模型和消费者模型，更再单个队列任务（job）上有以下特点：
 
