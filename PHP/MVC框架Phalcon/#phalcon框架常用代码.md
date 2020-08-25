@@ -1,5 +1,3 @@
-
-
 # MVC操作
 
 ## 接收参数,并指定参数类型
@@ -32,6 +30,14 @@ ErrorHandle::throwErr(Err::create(CoreLogic::REPEAT_SEND_ERROR, ['']));
 ErrorHandle::throwErr(Err::create(CoreLogic::PERMISSION_ERROR, ['phone']));
 ```
 
+## 获取格式化时间
+
+```
+$day = intval(DateHelper::getFormatDate());
+$week = intval(DateHelper::format('W'));
+$month = intval(DateHelper::getFormatDateMonth());
+```
+
 
 
 # Mysql数据库操作
@@ -46,6 +52,12 @@ ErrorHandle::throwErr(Err::create(CoreLogic::PERMISSION_ERROR, ['phone']));
 
 
 
+
+
+
+
+
+![image-20200820111434458](imgs/image-20200820111434458.png)
 
 
 
@@ -161,6 +173,24 @@ public static function findInList($ids)
 }
 ```
 
+## Like查询
+
+```
+$robots = $connection->fetchAll(
+          "SELECT FROM robots WHERE name LIKE :name",
+          \Phalcon\Db::FETCH_ASSOC,
+          [
+              "name" => "%robot%",
+          ]
+      );
+```
+
+
+
+
+
+
+
 ## 悲观锁 的使用
 
 **又称为  独占锁,排他锁**
@@ -258,7 +288,18 @@ $res = $newTag->create([
 
 ```
 
+
+
+
 ```
+
+常量 描述
+Phalcon\Db::FETCH_NUM 返回带有数字索引的数组
+Phalcon\Db::FETCH_ASSOC 返回带关联索引的数组
+Phalcon\Db::FETCH_BOTH 返回包含关联索引和数字索引的数组
+Phalcon\Db::FETCH_OBJ 返回⼀个对象⽽不是⼀个数组
+
+
 
 
 

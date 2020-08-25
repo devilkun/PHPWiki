@@ -63,6 +63,11 @@ git config --global color.branch auto
 git config --global color.interactive auto
 git config --global --unset http.proxy # remove proxy configuration on git
 git clone git+ssh://git@192.168.53.168/VT.git # clone远程仓库
+只克隆某个分支的代码
+git clone -b lua https://gitlab.kekestar.cn/miai/server/appconfig.git .
+git clone -b rc https://gitlab.kekestar.cn/miai/server/cmsucenterserver.git 
+
+
 git status # 查看当前版本状态（是否修改）
 git add xyz # 添加xyz文件至index
 git add . # 增加当前子目录下所有更改过的文件至index

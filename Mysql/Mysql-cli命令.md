@@ -24,6 +24,20 @@ exit;//退出
 CREATE DATABASE IF NOT EXISTS dbcontent  DEFAULT CHARACTER SET utf8mb4;
 ```
 
+## 创建只读用户
+
+>  若要限制仅指定IP可以使用此用户访问Mysql，将%改为具IP即可
+
+```
+mysql -uroot -p
+GRANT SElECT ON *.* TO '用户名'@'%' IDENTIFIED BY "密码";
+GRANT SElECT ON *.* TO 'testread'@'1.202.240.226' IDENTIFIED BY "testread?123";
+//刷新mysql权限，使用户创建、授权生效。
+flush privileges;
+```
+
+
+
 
 
 ### MySQL报错：[Err] 1055 - Expression #1 of ORDER BY clause is not in GROUP BY clause
