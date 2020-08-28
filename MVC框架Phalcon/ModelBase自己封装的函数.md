@@ -128,8 +128,6 @@ public static function findFirstArray($parameters = null)
 ## findArray
 
 ```
-
-
 public static function findArray($parameters = null)
 {
     $result  = parent::find($parameters);

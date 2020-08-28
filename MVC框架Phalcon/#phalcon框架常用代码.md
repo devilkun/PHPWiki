@@ -341,6 +341,53 @@ public static function getListPage($params)
 
 
 
+在日志中  记录SQL语句
+
+```
+	/**
+     * 在日志中打印sql语句
+     * @param $connection
+     */
+    public function logSql($connection)
+    {
+        if (CommonHelper::isPro()) {
+            return;
+        }
+
+        try{
+            $sql = $connection->getRealSQLStatement();
+            if (mb_stripos(" " .$sql, "select") && !mb_stripos(" " .$sql, "INFORMATION_SCHEMA") ) {
+                //var_dump($sql);die();
+                $where   = $connection->getSqlVariables();
+                if(count($where) > 0){
+                    //pdo param bind
+                    /*foreach($where as $k => $v){
+                        $type = is_numeric($v) ? $pdo::PARAM_INT : $pdo::PARAM_STR;
+                        $sth->bindValue(':'.$k, $v,$type) ;
+                    }*/
+
+                    //str_replace param
+                    foreach($where as $k => $v){
+                        $prefix = strpos(' '.$k,':') === false ? ':' : '' ;
+                        if(!is_array($v)){
+                            $sql = is_numeric($v) ? str_replace($prefix.$k,$v,$sql) : str_replace($prefix.$k,"'".$v."'",$sql);
+                        }else{
+                            foreach($v as $kn => $vn){
+                                $sql = str_replace($prefix.$k.$kn,"'".$vn."'",$sql);
+                            }
+                        }
+                    }
+                }
+                LogHelper::debug('sql', $sql);
+                //var_dump($exp_sql);die();
+            }
+        }catch (PDOException $e){
+            $error_msg  = $e->errorInfo;
+            LogHelper::error(" explain_pdo",$error_msg);
+        }
+    }
+```
+
 
 
 

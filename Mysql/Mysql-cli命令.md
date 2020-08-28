@@ -21,7 +21,7 @@ exit;//退出
 ### 创建数据库
 
 ```
-CREATE DATABASE IF NOT EXISTS dbcontent  DEFAULT CHARACTER SET utf8mb4;
+CREATE DATABASE IF NOT EXISTS dbtask  DEFAULT CHARACTER SET utf8mb4;
 ```
 
 ## 创建只读用户
@@ -47,10 +47,10 @@ select version(),
 @@sql_mode;SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 ```
 
-### 临时  用完删除
+### 分配某个用户某个数据库的读写权限
 
 ```
-grant all privileges on dbcontent.* to db_user@'%' identified by 'miai888gtopphp';
+grant all privileges on dbactivity.* to db_user@'%' identified by 'miai888gtopphp';
 flush privileges;
 ```
 
