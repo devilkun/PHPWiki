@@ -14,14 +14,18 @@
      * @param array $fields
      * @param array $wheres
      */
-    public function updateData(array $fields, array $wheres)
+   public function updateData(array $fields, array $wheres)
     {
         if (empty($wheres) || empty($fields) ) {
             throw new \RuntimeException("缺少更新条件");
         }
         $columns = [];
         foreach ($fields as $field => $number){
-            $columns[] =  "`{$field}` =  {$number}";
+            if(is_string($number)){
+                $columns[] =  "`{$field}` =  '{$number}' ";
+            }else{
+                $columns[] =  "`{$field}` =  {$number}";
+            }
         }
         $where = [];
         foreach ($wheres as $key => $value){
