@@ -9,7 +9,7 @@ mysql -uroot -p
 添加一个用户名为db_user，密码为123456，授权为% （%表示所有IP能连接）
 对db_test数据库有所有权限
 下面这个sql语句 执行第二次  会覆盖第一次的密码
-grant all privileges on dbtrade.* to db_user@'%' identified by 'miai888gtopphp';
+grant all privileges on dbtrace.* to db_user@'%' identified by 'miai888gtopphp';
 flush privileges;
 exit;//退出
 
@@ -21,7 +21,7 @@ exit;//退出
 ### 创建数据库
 
 ```
-CREATE DATABASE IF NOT EXISTS dbtask  DEFAULT CHARACTER SET utf8mb4;
+CREATE DATABASE IF NOT EXISTS dbtrace  DEFAULT CHARACTER SET utf8;
 ```
 
 ## 创建只读用户
