@@ -38,37 +38,41 @@ CLI 是 PHP 专门提供给我们与命令行交互的工具。CGI 是 PHP 提�
 
 ### 查看 PHP 版本
 
+```
 php -v
+```
 
 ### 查看 PHP 扩展列表
 
+```
 php -m
+```
 
 ### 查看指定配置信息
 
+```
 php -i|grep session
-
-
+```
 
 ### 查看 PHP 使用的php.ini配置文件
 
+```
 php --ini
-
-
+```
 
 ### 查看扩展是否存在
 
+```
+php --re yafs
 
+php -m|grep yaf
+```
 
- php --re yafs
+ 查看扩展配置信息  扩展版本信息
 
- php -m|grep yaf
-
-###  查看扩展配置信息  扩展版本信息
-
+```
  php --ri yaf
-
-
+```
 
 
 

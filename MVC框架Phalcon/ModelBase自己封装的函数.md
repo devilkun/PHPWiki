@@ -138,3 +138,4 @@ public static function findArray($parameters = null)
     return !empty($result) ? $result->toArray() : [];
 }
 ```
+

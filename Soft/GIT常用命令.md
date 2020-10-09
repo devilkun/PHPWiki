@@ -26,6 +26,7 @@ git clone git+ssh://git@192.168.53.168/VT.git # clone远程仓库
 只克隆某个分支的代码
 git clone -b lua https://gitlab.kekestar.cn/miai/server/appconfig.git .
 git clone -b supervisor https://gitlab.kekestar.cn/miai/server/appconfig.git .
+git clone -b nginxpro https://gitlab.kekestar.cn/miai/server/appconfig.git .
 git clone -b test https://gitlab.kekestar.cn/liuaifeng/taskserver.git
 
 
